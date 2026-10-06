@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Pb Praktikum2 2410651027 Muhammad Rafi Amiruddin</string>
+	<string>Pb 2410651027 Rafi Sistem Informasi Keuangan Perusahaan Berbasis Mobile</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>pb_praktikum2_2410651027_muhammad_rafi_amiruddin</string>
+	<string>pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="pb_praktikum2_2410651027_muhammad_rafi_amiruddin"
+        android:label="pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

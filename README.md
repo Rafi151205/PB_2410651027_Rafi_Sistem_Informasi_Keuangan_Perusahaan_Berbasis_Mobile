@@ -1,17 +1,31 @@
-# pb_praktikum2_2410651027_muhammad_rafi_amiruddin
+# Sistem Informai keuangan Perusahaan Berbasis Mobile
 
-A new Flutter project.
+## Deskripsi
+Sistem Informai keuangan Perusahaan Berbasis Mobile adalah prototype aplikasi sederhana untuk membantu perusahaan mencatat pamasukan pengeluaran pelaporan dan beberapa fitur lain nya.
 
-## Getting Started
+## Identitas
+Nama: Muhammad Rafi Amiruddin
+NIM: 2410651027
 
-This project is a starting point for a Flutter application.
+## Versi
+v0.0 - Prototype
 
-A few resources to get you started if this is your first Flutter project:
+## Fitur Prototype v0.0
+- Menampilkan nama aplikasi
+- Menampilkan deskripsi aplikasi
+- Menampilkan identitas pengembang
+- Menampilkan target pengguna
+- Menampilkan tombol interaktif sederhana dengan SnackBar
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Cara Menjalankan
+flutter pub get
+flutter run -d chrome
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Bukti Running
+Screenshot aplikasi berjalan dilampirkan pada LMS pada file PDF.
+
+## Catatan Kendala
+Tuliskan kendala yang dialami jika ada.(Sejauh ini Masih Tidak Ada)
+
+## Catatan Penggunaan AI
+Saya menggunakan AI untuk Membuat Kode program Prototype v0.0 yang di tempatkan di library pada file main.dart, namun saya tidak hanya meminta AI untuk membuatkan kode tapi juga menjelaskan kode kode itu untuk saya pelajari dan pahami.

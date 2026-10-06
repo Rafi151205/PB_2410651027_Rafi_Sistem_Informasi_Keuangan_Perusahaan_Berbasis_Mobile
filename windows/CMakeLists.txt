@@ -1,10 +1,10 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(pb_praktikum2_2410651027_muhammad_rafi_amiruddin LANGUAGES CXX)
+project(pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "pb_praktikum2_2410651027_muhammad_rafi_amiruddin")
+set(BINARY_NAME "pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

@@ -27,7 +27,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
   Win32Window::Size size(1280, 720);
-  if (!window.Create(L"pb_praktikum2_2410651027_muhammad_rafi_amiruddin", origin, size)) {
+  if (!window.Create(L"pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile", origin, size)) {
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

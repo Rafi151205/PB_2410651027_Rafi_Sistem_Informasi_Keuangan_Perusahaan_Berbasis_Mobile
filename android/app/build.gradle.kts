@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pb_praktikum2_2410651027_muhammad_rafi_amiruddin"
+    namespace = "com.example.pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.pb_praktikum2_2410651027_muhammad_rafi_amiruddin"
+        applicationId = "com.example.pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

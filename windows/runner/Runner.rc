@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "pb_praktikum2_2410651027_muhammad_rafi_amiruddin" "\0"
+            VALUE "FileDescription", "pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pb_praktikum2_2410651027_muhammad_rafi_amiruddin" "\0"
+            VALUE "InternalName", "pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pb_praktikum2_2410651027_muhammad_rafi_amiruddin.exe" "\0"
-            VALUE "ProductName", "pb_praktikum2_2410651027_muhammad_rafi_amiruddin" "\0"
+            VALUE "OriginalFilename", "pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile.exe" "\0"
+            VALUE "ProductName", "pb_2410651027_rafi_sistem_informasi_keuangan_perusahaan_berbasis_mobile" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
