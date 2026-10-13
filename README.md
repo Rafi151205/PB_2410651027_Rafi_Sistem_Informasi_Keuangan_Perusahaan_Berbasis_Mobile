@@ -1,7 +1,11 @@
 # Sistem Informai keuangan Perusahaan Berbasis Mobile
 
 ## Deskripsi
-Sistem Informai keuangan Perusahaan Berbasis Mobile adalah prototype aplikasi sederhana untuk membantu perusahaan mencatat pamasukan pengeluaran pelaporan dan beberapa fitur lain nya.
+Nama proyek: Sistem Keuangan Perusahaan. 
+Tujuan: merancang aplikasi mobile untuk mencatat keuangan usaha internet/ISP dan pengepul kopi green bean. 
+Teknologi rencana: Flutter dan Dart. 
+Modul utama: Dashboard, Internet/ISP, Pengepul Kopi, Keuangan, Laporan, dan Pengaturan. 
+Status: prototype visual v0.0; status database dan fungsi transaksi aktual perlu disesuaikan dengan implementasi proyek yang sebenarnya.
 
 ## Identitas
 Nama: Muhammad Rafi Amiruddin
