@@ -34,6 +34,43 @@ Screen yang tersedia
 5. Laporan — menampilkan ringkasan laporan keuangan contoh.
 6. Profil — menampilkan profil operator demo dan tombol keluar.
 
+## Fitur Form & Validatuon v0.2
+
+# Sistem Keuangan Perusahaan — BAB 6 Form & Validation v0.2
+
+## Fitur BAB 6
+- Form catat setoran pelanggan internet.
+- Validasi nama pelanggan wajib diisi dan minimal 3 karakter.
+- Pilihan layanan Hotspot Voucher atau PPPoE serta pilihan paket yang menyesuaikan layanan.
+- Validasi nominal setoran harus angka dan lebih besar dari 0.
+- Form catat pembelian green bean dari petani/pemasok.
+- Validasi nama, berat (kg), dan harga per kg; angka harus valid dan lebih besar dari 0.
+- Total pembelian dihitung otomatis dari berat × harga per kg menggunakan `setState`.
+- Pemilihan tanggal, SnackBar sebagai feedback, dan `dispose()` untuk controller.
+- Navigasi BAB 5 tetap tersedia melalui menu utama.
+
+## Menjalankan
+1. Buat/buka proyek Flutter.
+2. Ganti isi `lib/main.dart` dengan file `lib/main.dart` pada paket ini.
+3. Jalankan `flutter pub get`.
+4. Jalankan `flutter run`.
+
+## Catatan
+Aplikasi ini masih prototype/demo. Data yang diisi belum disimpan ke database atau penyimpanan permanen. SnackBar menyatakan pencatatan demo, bukan transaksi yang sudah tersimpan secara permanen.
+
+## Skenario pengujian
+1. Buka menu Internet → Catat pembayaran.
+2. Tekan Simpan Setoran dalam keadaan kosong; pesan validasi harus muncul.
+3. Masukkan nama kurang dari 3 karakter; validasi nama harus muncul.
+4. Masukkan nominal kosong, huruf, atau 0; validasi nominal harus muncul.
+5. Isi semua data valid dan pilih layanan/paket; form lolos validasi dan menampilkan SnackBar.
+6. Buka menu Kopi → Catat pembelian kopi.
+7. Uji nama kosong, berat kosong/teks/0, dan harga kosong/teks/0.
+8. Ubah berat dan harga; estimasi total harus berubah otomatis.
+9. Isi semua data valid; form lolos validasi dan menampilkan SnackBar.
+10. Kembali ke menu utama dan pastikan navigasi Dashboard, Internet, Kopi, Laporan, dan Profil tetap berfungsi.
+
+
 ## Cara Menjalankan
 flutter pub get
 flutter run -d chrome

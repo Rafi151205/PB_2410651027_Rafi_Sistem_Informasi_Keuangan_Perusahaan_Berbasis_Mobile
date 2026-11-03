@@ -47,3 +47,18 @@ Catatan
 - Login belum terhubung ke autentikasi server.
 - Database, API, dan penyimpanan transaksi belum diterapkan.
 - Pengujian navigasi dan interaksi perlu dilakukan pada perangkat atau Chrome, lalu dilengkapi screenshot/video sebagai evidence praktikum.
+
+Tanggal: [28 Oktober 2026]
+
+## v0.2 — Form & Validation (BAB 6)
+- Menambahkan form pencatatan setoran pelanggan internet.
+- Menambahkan pilihan jenis layanan Hotspot Voucher dan PPPoE beserta pilihan paket.
+- Menambahkan validasi field wajib, panjang nama minimal, angka valid, dan nilai harus lebih besar dari nol.
+- Menambahkan form pembelian kopi green bean dari petani/pemasok.
+- Menambahkan kalkulasi total pembelian otomatis berdasarkan berat dan harga per kg.
+- Menambahkan pemilihan tanggal transaksi.
+- Menambahkan feedback menggunakan SnackBar untuk validasi dan simulasi penyimpanan.
+- Menggunakan `Form`, `GlobalKey<FormState>`, `TextFormField`, `validator`, `TextEditingController`, `StatefulWidget`, `setState`, dan `dispose()`.
+- Menghubungkan tombol Catat Pembayaran dan Catat Pembelian Kopi ke halaman form.
+- Menjaga struktur navigasi utama dari BAB 5.
+- Data masih berupa prototype dan belum terhubung database.
