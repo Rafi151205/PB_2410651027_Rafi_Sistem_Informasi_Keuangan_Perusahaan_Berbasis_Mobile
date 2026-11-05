@@ -22,6 +22,7 @@ v0.0 - Prototype
 - Menampilkan tombol interaktif sederhana dengan SnackBar
 
 ## Fitur Navigation v0.1
+
 Aplikasi dirancang untuk menampilkan contoh ringkasan dua bidang usaha:
 - Internet / ISP
 - Pengepul Kopi Green Bean
@@ -70,6 +71,45 @@ Aplikasi ini masih prototype/demo. Data yang diisi belum disimpan ke database at
 9. Isi semua data valid; form lolos validasi dan menampilkan SnackBar.
 10. Kembali ke menu utama dan pastikan navigasi Dashboard, Internet, Kopi, Laporan, dan Profil tetap berfungsi.
 
+# Data Module v0.3 — Local/Mock Data dan CRUD Sederhana
+
+## Teknologi
+
+1. Flutter dan Dart
+
+2. Penyimpanan sementara menggunakan List<FinanceRecord>
+
+3. Form dan validasi menggunakan GlobalKey<FormState> dan TextFormField
+
+4. Tampilan daftar menggunakan ListView dan ListTile
+
+## Fitur Aplikasi
+
+- Dashboard: menampilkan penerimaan, pengeluaran, saldo bersih, dan aktivitas terbaru.
+
+- Internet: mengelola pelanggan, paket Hotspot, paket PPPoE, dan setoran.
+
+- Pengepul Kopi: mengelola pemasok, pembelian green bean, stok, dan penjualan ke pabrik.
+
+- Laporan: menampilkan rekap transaksi dan perhitungan keuangan.
+
+- Profil: menampilkan informasi aplikasi dan penyimpanan data.
+
+## Implementasi CRUD
+
+- Create: menambahkan data melalui form.
+
+- Read: menampilkan data dalam daftar.
+
+- Update: mengubah data yang sudah tersimpan.
+
+- Delete: menghapus data melalui konfirmasi.
+
+## Penyimpanan Data
+
+Data dikelola menggunakan List<FinanceRecord> dan dimulai dalam keadaan kosong. Data yang ditampilkan berasal dari input pengguna, bukan data demo.
+
+Penyimpanan masih bersifat sementara di memori aplikasi. Data dapat hilang ketika aplikasi ditutup atau dimulai ulang. Pada tahap ini belum digunakan database permanen.
 
 ## Cara Menjalankan
 flutter pub get

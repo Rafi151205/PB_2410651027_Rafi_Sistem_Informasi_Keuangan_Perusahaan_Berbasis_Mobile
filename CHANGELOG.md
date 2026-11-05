@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## v0.0 - Prototype
 Tanggal: [06 Oktober 2026]
+
+# v0.0 - Prototype
 
 Perubahan:
 - Membuat halaman home/profil sederhana.
@@ -29,7 +30,7 @@ Bukti:
 
 Tanggal: [20 Oktober 2026]
 
-- Navigation v0.1
+# Navigation v0.1
 
 Ditambahkan
 - Screen Login / Akses Operator untuk masuk ke aplikasi demo.
@@ -50,7 +51,7 @@ Catatan
 
 Tanggal: [28 Oktober 2026]
 
-## v0.2 — Form & Validation (BAB 6)
+# v0.2 — Form & Validation (BAB 6)
 - Menambahkan form pencatatan setoran pelanggan internet.
 - Menambahkan pilihan jenis layanan Hotspot Voucher dan PPPoE beserta pilihan paket.
 - Menambahkan validasi field wajib, panjang nama minimal, angka valid, dan nilai harus lebih besar dari nol.
@@ -62,3 +63,44 @@ Tanggal: [28 Oktober 2026]
 - Menghubungkan tombol Catat Pembayaran dan Catat Pembelian Kopi ke halaman form.
 - Menjaga struktur navigasi utama dari BAB 5.
 - Data masih berupa prototype dan belum terhubung database.
+
+Tanggal: [03 November 2026]
+
+
+# Data Module v0.3
+
+## Tambahan
+
+- Model data FinanceRecord.
+
+- Penyimpanan sementara menggunakan List.
+
+- Daftar pelanggan, paket, setoran, pemasok, pembelian, penjualan, dan pengeluaran.
+
+- Fitur Create, Read, Update, dan Delete.
+
+- Dialog konfirmasi sebelum menghapus data.
+
+- Empty state ketika daftar belum memiliki data.
+
+- Pesan informasi menggunakan SnackBar.
+
+- Perhitungan penerimaan, pengeluaran, saldo bersih, dan stok kopi.
+
+## Pengggantian
+
+- Data awal dibuat kosong tanpa data demo.
+
+- Dashboard dan laporan menggunakan sumber perhitungan transaksi yang sama.
+
+- Pengelompokan data disesuaikan dengan usaha internet dan pengepul kopi green bean.
+
+## Catatan
+
+Penyimpanan masih menggunakan List di memori dan belum menggunakan database permanen.
+
+Penghapusan paket Hotspot/PPPoE dan pengelolaan pengeluaran dari halaman Laporan perlu diperiksa kembali.
+
+Validasi agar penjualan kopi tidak melebihi stok perlu ditambahkan.
+
+Pengujian CRUD menyeluruh harus dilakukan sebelum rilis.

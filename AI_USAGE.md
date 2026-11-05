@@ -1,7 +1,19 @@
-Dalam pengerjaan proyek aplikasi Sistem Keuangan Perusahaan Berbasis Mobile menggunakan Flutter, saya menggunakan ChatGPT sebagai alat bantu untuk memahami materi pemrograman bergerak, memperbaiki kesalahan kode, dan menyusun dokumentasi proyek.
+Saya menggunakan ChatGPT sebagai alat bantu selama pengembangan Data Module v0.3 pada aplikasi Sistem Keuangan Perusahaan Berbasis Mobile.
 
-ChatGPT membantu saya memahami penggunaan navigasi antarhalaman menggunakan Navigator.push() dan Navigator.pop(), menangani event pada tombol menggunakan onPressed, menerima input pengguna menggunakan TextField, serta menampilkan pesan informasi menggunakan SnackBar.
+AI digunakan untuk membantu:
 
-Bantuan AI digunakan pada bagian kode main.dart, halaman Login, Dashboard Keuangan, Internet/ISP, Pengepul Kopi Green Bean, serta penyusunan file README.md dan CHANGELOG.md. Saran yang diberikan kemudian disesuaikan dengan kebutuhan aplikasi dan rancangan antarmuka yang telah dibuat.
+Memahami kebutuhan BAB 7, terutama model data dan penyimpanan local/mock.
 
-Dari proses ini, saya memahami dasar navigasi antarhalaman, cara menangani interaksi pengguna, cara menerima input sederhana, dan pentingnya dokumentasi dalam pengembangan aplikasi. Saya juga perlu memastikan bahwa kode dapat dijalankan dengan baik melalui pengujian aplikasi dan pemeriksaan menggunakan flutter analyze.
+Memahami penerapan CRUD (Create, Read, Update, Delete).
+
+Membantu menyusun struktur model data menggunakan class FinanceRecord.
+
+Membantu memahami penggunaan List untuk menyimpan data sementara.
+
+Membantu menyusun dokumentasi README.md, CHANGELOG.md, dan laporan pengembangan.
+
+Saran dan hasil kode dari AI tidak langsung dianggap benar. Saya perlu memeriksa, menyesuaikan, menjalankan, dan menguji kembali kode tersebut menggunakan Flutter.
+
+Bagian yang perlu diperiksa secara khusus adalah proses edit dan hapus data, pembaruan ringkasan keuangan, validasi stok kopi, serta penyimpanan data sementara.
+
+AI digunakan sebagai pendamping dalam proses belajar dan pengembangan aplikasi, bukan sebagai pengganti pemeriksaan dan pengujian mandiri.
