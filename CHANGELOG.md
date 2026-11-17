@@ -104,3 +104,17 @@ Penghapusan paket Hotspot/PPPoE dan pengelolaan pengeluaran dari halaman Laporan
 Validasi agar penjualan kopi tidak melebihi stok perlu ditambahkan.
 
 Pengujian CRUD menyeluruh harus dilakukan sebelum rilis.
+
+# UTS APP Mini v1.0
+
+## Menambahakan Fitur Summary Dashboard
+
+- Menampilkan Total Masuk 
+
+- Menampilkan Total Keluar 
+
+- Menampilkan Saldo Bersih 
+
+- Manambahkan Beberapa Tabel DropDownButton Di Beberapa fitur yang Menurut saya cocok menggunakan DropDownButton ini dan ini saya terapkan di usaha internet.
+
+- Menambahakan Fitur Penghitungan Otomatis Menggunakan FinanceRecord,Field total yang nantinya akan otomatis menghitung ulang sebelum di simpan dan ini saya terapkan di usaha kopi.

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -43,8 +42,7 @@ class FinanceRecord {
   });
 
   double get total {
-    if (type == 'Pembelian Kopi' ||
-        type == 'Penjualan Kopi') {
+    if (type == 'Pembelian Kopi' || type == 'Penjualan Kopi') {
       return weight * price;
     }
 
@@ -103,15 +101,9 @@ double get saldoBersih {
 }
 
 double get totalStokKopi {
-  final dibeli = purchases.fold<double>(
-    0,
-    (sum, item) => sum + item.weight,
-  );
+  final dibeli = purchases.fold<double>(0, (sum, item) => sum + item.weight);
 
-  final dijual = sales.fold<double>(
-    0,
-    (sum, item) => sum + item.weight,
-  );
+  final dijual = sales.fold<double>(0, (sum, item) => sum + item.weight);
 
   return dibeli - dijual;
 }
@@ -121,10 +113,9 @@ double get totalStokKopi {
 // ============================================================
 
 String rupiah(num value) {
-  final formatted = value.toStringAsFixed(0).replaceAllMapped(
-    RegExp(r'\B(?=(\d{3})+(?!\d))'),
-    (match) => '.',
-  );
+  final formatted = value
+      .toStringAsFixed(0)
+      .replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => '.');
 
   return 'Rp$formatted';
 }
@@ -139,10 +130,7 @@ String tanggalSekarang() {
 
 void showMessage(BuildContext context, String message) {
   ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(message),
-      behavior: SnackBarBehavior.floating,
-    ),
+    SnackBar(content: Text(message), behavior: SnackBarBehavior.floating),
   );
 }
 
@@ -161,9 +149,7 @@ class FinanceApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: bg,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: navy,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: navy),
         fontFamily: 'Roboto',
       ),
       home: const MainShell(),
@@ -200,10 +186,7 @@ class _MainShellState extends State<MainShell> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      DashboardPage(
-        onNavigate: navigateTo,
-        onChanged: refreshData,
-      ),
+      DashboardPage(onNavigate: navigateTo, onChanged: refreshData),
       InternetPage(onChanged: refreshData),
       CoffeePage(onChanged: refreshData),
       ReportPage(onChanged: refreshData),
@@ -212,10 +195,7 @@ class _MainShellState extends State<MainShell> {
 
     return Scaffold(
       body: SafeArea(
-        child: IndexedStack(
-          index: selectedIndex,
-          children: pages,
-        ),
+        child: IndexedStack(index: selectedIndex, children: pages),
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectedIndex,
@@ -256,11 +236,7 @@ class _MainShellState extends State<MainShell> {
 // 8. KOMPONEN TAMPILAN UMUM
 // ============================================================
 
-Widget header(
-  String code,
-  String title,
-  String subtitle,
-) {
+Widget header(String code, String title, String subtitle) {
   return Container(
     color: Colors.white,
     padding: const EdgeInsets.fromLTRB(18, 12, 18, 16),
@@ -271,10 +247,7 @@ Widget header(
           children: [
             Text(
               '09.41',
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
             ),
             Spacer(),
             Icon(Icons.signal_cellular_alt, size: 13),
@@ -285,10 +258,7 @@ Widget header(
         const SizedBox(height: 17),
         Text(
           code.toUpperCase(),
-          style: const TextStyle(
-            fontSize: 9,
-            color: muted,
-          ),
+          style: const TextStyle(fontSize: 9, color: muted),
         ),
         const SizedBox(height: 4),
         Text(
@@ -300,13 +270,7 @@ Widget header(
           ),
         ),
         const SizedBox(height: 4),
-        Text(
-          subtitle,
-          style: const TextStyle(
-            fontSize: 11,
-            color: muted,
-          ),
-        ),
+        Text(subtitle, style: const TextStyle(fontSize: 11, color: muted)),
       ],
     ),
   );
@@ -328,10 +292,7 @@ Widget commonCard(
   );
 }
 
-Widget section(
-  String title, {
-  Widget? trailing,
-}) {
+Widget section(String title, {Widget? trailing}) {
   return Padding(
     padding: const EdgeInsets.only(top: 17, bottom: 9),
     child: Row(
@@ -346,7 +307,7 @@ Widget section(
             ),
           ),
         ),
-        if (trailing != null) trailing,
+        ?trailing,
       ],
     ),
   );
@@ -368,9 +329,7 @@ Widget actionButton(
         backgroundColor: color,
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(vertical: 13),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(9),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
       ),
     ),
   );
@@ -382,52 +341,33 @@ Widget emptyState(
   IconData icon = Icons.inbox_outlined,
 }) {
   return Padding(
-    padding: const EdgeInsets.symmetric(
-      vertical: 22,
-      horizontal: 8,
-    ),
+    padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 8),
     child: Column(
       children: [
         Icon(icon, size: 35, color: muted),
         const SizedBox(height: 9),
         Text(
           title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w700,
-            color: navy,
-          ),
+          style: const TextStyle(fontWeight: FontWeight.w700, color: navy),
         ),
         const SizedBox(height: 5),
         Text(
           detail,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 11,
-            color: muted,
-          ),
+          style: const TextStyle(fontSize: 11, color: muted),
         ),
       ],
     ),
   );
 }
 
-Widget stat(
-  String title,
-  String value, {
-  Color color = navy,
-}) {
+Widget stat(String title, String value, {Color color = navy}) {
   return Expanded(
     child: commonCard(
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 10,
-              color: muted,
-            ),
-          ),
+          Text(title, style: const TextStyle(fontSize: 10, color: muted)),
           const SizedBox(height: 7),
           Text(
             value,
@@ -503,8 +443,7 @@ class _RecordFormState extends State<RecordForm> {
       weightController.text = record.weight.toString();
       priceController.text = record.price.toString();
 
-      if (record.type == 'Pelanggan' ||
-          record.type == 'Setoran') {
+      if (record.type == 'Pelanggan' || record.type == 'Setoran') {
         final detailParts = record.detail.split(' | ');
 
         service = detailParts.first;
@@ -546,9 +485,7 @@ class _RecordFormState extends State<RecordForm> {
       return 'Nominal wajib diisi.';
     }
 
-    final number = double.tryParse(
-      value.replaceAll(',', '.'),
-    );
+    final number = double.tryParse(value.replaceAll(',', '.'));
 
     if (number == null || number <= 0) {
       return 'Masukkan angka yang valid dan lebih dari 0.';
@@ -558,26 +495,15 @@ class _RecordFormState extends State<RecordForm> {
   }
 
   double parseNumber(TextEditingController controller) {
-    return double.tryParse(
-          controller.text.replaceAll(',', '.'),
-        ) ??
-        0;
+    return double.tryParse(controller.text.replaceAll(',', '.')) ?? 0;
   }
 
-  InputDecoration inputDecoration(
-    String label,
-    IconData icon,
-  ) {
+  InputDecoration inputDecoration(String label, IconData icon) {
     return InputDecoration(
       labelText: label,
       prefixIcon: Icon(icon, size: 18),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(9),
-      ),
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 13,
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(9)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 13),
     );
   }
 
@@ -594,15 +520,13 @@ class _RecordFormState extends State<RecordForm> {
       child: TextFormField(
         controller: controller,
         keyboardType: number
-            ? const TextInputType.numberWithOptions(
-                decimal: true,
-              )
+            ? const TextInputType.numberWithOptions(decimal: true)
             : TextInputType.text,
         decoration: inputDecoration(label, icon),
         validator: required
             ? number
-                ? validateNumber
-                : validateText
+                  ? validateNumber
+                  : validateText
             : null,
         onChanged: (_) {
           onInputChanged?.call();
@@ -616,9 +540,7 @@ class _RecordFormState extends State<RecordForm> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          isEditing
-              ? 'Edit ${widget.title}'
-              : 'Tambah ${widget.title}',
+          isEditing ? 'Edit ${widget.title}' : 'Tambah ${widget.title}',
         ),
       ),
       body: Form(
@@ -631,9 +553,7 @@ class _RecordFormState extends State<RecordForm> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    isEditing
-                        ? 'Form Edit Data'
-                        : 'Form ${widget.title}',
+                    isEditing ? 'Form Edit Data' : 'Form ${widget.title}',
                     style: const TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w800,
@@ -643,10 +563,7 @@ class _RecordFormState extends State<RecordForm> {
                   const SizedBox(height: 5),
                   const Text(
                     'Masukkan data sesuai transaksi sebenarnya.',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: muted,
-                    ),
+                    style: TextStyle(fontSize: 11, color: muted),
                   ),
                 ],
               ),
@@ -674,26 +591,17 @@ class _RecordFormState extends State<RecordForm> {
             ],
 
             if (isCustomer) ...[
-              textField(
-                'Nama pelanggan',
-                nameController,
-                Icons.person_outline,
-              ),
+              textField('Nama pelanggan', nameController, Icons.person_outline),
               DropdownButtonFormField<String>(
-                value: service,
-                decoration: inputDecoration(
-                  'Jenis layanan',
-                  Icons.wifi,
-                ),
+                initialValue: service,
+                decoration: inputDecoration('Jenis layanan', Icons.wifi),
                 items: const [
                   DropdownMenuItem(
                     value: 'Hotspot Voucher',
                     child: Text('Hotspot Voucher'),
                   ),
-                  DropdownMenuItem(
-                    value: 'PPPoE',
-                    child: Text('PPPoE'),
-                  ),
+                  DropdownMenuItem(value: 'PPPoE', child: Text('PPPoE')),
+                  DropdownMenuItem(value: 'Mitra', child: Text('Mitra')),
                 ],
                 onChanged: (value) {
                   setState(() {
@@ -710,26 +618,17 @@ class _RecordFormState extends State<RecordForm> {
             ],
 
             if (isPayment) ...[
-              textField(
-                'Nama pelanggan',
-                nameController,
-                Icons.person_outline,
-              ),
+              textField('Nama pelanggan', nameController, Icons.person_outline),
               DropdownButtonFormField<String>(
-                value: service,
-                decoration: inputDecoration(
-                  'Jenis layanan',
-                  Icons.wifi,
-                ),
+                initialValue: service,
+                decoration: inputDecoration('Jenis layanan', Icons.wifi),
                 items: const [
                   DropdownMenuItem(
                     value: 'Hotspot Voucher',
                     child: Text('Hotspot Voucher'),
                   ),
-                  DropdownMenuItem(
-                    value: 'PPPoE',
-                    child: Text('PPPoE'),
-                  ),
+                  DropdownMenuItem(value: 'PPPoE', child: Text('PPPoE')),
+                  DropdownMenuItem(value: 'Mitra', child: Text('Mitra')),
                 ],
                 onChanged: (value) {
                   setState(() {
@@ -787,9 +686,7 @@ class _RecordFormState extends State<RecordForm> {
 
             if (isPurchase || isSale) ...[
               textField(
-                isPurchase
-                    ? 'Nama petani / pemasok'
-                    : 'Nama pabrik pembeli',
+                isPurchase ? 'Nama petani / pemasok' : 'Nama pabrik pembeli',
                 nameController,
                 Icons.person_outline,
               ),
@@ -831,10 +728,7 @@ class _RecordFormState extends State<RecordForm> {
                   children: [
                     const Text(
                       'Estimasi total transaksi',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 11,
-                      ),
+                      style: TextStyle(color: Colors.white70, fontSize: 11),
                     ),
                     const SizedBox(height: 5),
                     Text(
@@ -868,10 +762,7 @@ class _RecordFormState extends State<RecordForm> {
 
   void saveData() {
     if (!formKey.currentState!.validate()) {
-      showMessage(
-        context,
-        'Periksa kembali input yang masih salah.',
-      );
+      showMessage(context, 'Periksa kembali input yang masih salah.');
       return;
     }
 
@@ -881,8 +772,7 @@ class _RecordFormState extends State<RecordForm> {
     if (isSale) {
       final beratPenjualan = parseNumber(weightController);
 
-      final stokTersedia = totalStokKopi +
-          (oldRecord?.weight ?? 0);
+      final stokTersedia = totalStokKopi + (oldRecord?.weight ?? 0);
 
       if (beratPenjualan > stokTersedia) {
         showMessage(
@@ -899,25 +789,21 @@ class _RecordFormState extends State<RecordForm> {
     if (isPurchase) {
       final beratBaru = parseNumber(weightController);
 
-      final totalPembelianTanpaDataLama =
-          purchases.fold<double>(
-        0,
-        (sum, item) {
-          if (item == oldRecord) {
-            return sum;
-          }
+      final totalPembelianTanpaDataLama = purchases.fold<double>(0, (
+        sum,
+        item,
+      ) {
+        if (item == oldRecord) {
+          return sum;
+        }
 
-          return sum + item.weight;
-        },
-      );
+        return sum + item.weight;
+      });
 
       final totalStokSetelahEdit =
           totalPembelianTanpaDataLama +
-              beratBaru -
-              sales.fold<double>(
-                0,
-                (sum, item) => sum + item.weight,
-              );
+          beratBaru -
+          sales.fold<double>(0, (sum, item) => sum + item.weight);
 
       if (totalStokSetelahEdit < 0) {
         showMessage(
@@ -929,7 +815,8 @@ class _RecordFormState extends State<RecordForm> {
       }
     }
 
-    final record = widget.record ??
+    final record =
+        widget.record ??
         FinanceRecord(
           id: createId(),
           type: widget.title,
@@ -947,12 +834,10 @@ class _RecordFormState extends State<RecordForm> {
       record.amount = parseNumber(amountController);
     } else if (isCustomer) {
       record.name = nameController.text.trim();
-      record.detail =
-          '$service | ${detailController.text.trim()}';
+      record.detail = '$service | ${detailController.text.trim()}';
     } else if (isPayment) {
       record.name = nameController.text.trim();
-      record.detail =
-          '$service | ${detailController.text.trim()}';
+      record.detail = '$service | ${detailController.text.trim()}';
       record.amount = parseNumber(amountController);
     } else if (isExpense) {
       record.name = nameController.text.trim();
@@ -972,9 +857,7 @@ class _RecordFormState extends State<RecordForm> {
 
     showMessage(
       context,
-      isEditing
-          ? 'Data berhasil diperbarui.'
-          : 'Data berhasil ditambahkan.',
+      isEditing ? 'Data berhasil diperbarui.' : 'Data berhasil ditambahkan.',
     );
 
     Navigator.pop(context);
@@ -1021,9 +904,7 @@ void deleteRecord(
     builder: (dialogContext) {
       return AlertDialog(
         title: const Text('Hapus data?'),
-        content: Text(
-          'Apakah kamu yakin ingin menghapus "${record.name}"?',
-        ),
+        content: Text('Apakah kamu yakin ingin menghapus "${record.name}"?'),
         actions: [
           TextButton(
             onPressed: () {
@@ -1032,27 +913,20 @@ void deleteRecord(
             child: const Text('Batal'),
           ),
           FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: red,
-            ),
+            style: FilledButton.styleFrom(backgroundColor: red),
             onPressed: () {
               // Mencegah penghapusan pembelian jika
               // stoknya sudah digunakan untuk penjualan.
               if (record.type == 'Pembelian Kopi') {
-                final sisaPembelian =
-                    purchases.fold<double>(
-                  0,
-                  (sum, item) {
-                    if (item == record) {
-                      return sum;
-                    }
+                final sisaPembelian = purchases.fold<double>(0, (sum, item) {
+                  if (item == record) {
+                    return sum;
+                  }
 
-                    return sum + item.weight;
-                  },
-                );
+                  return sum + item.weight;
+                });
 
-                final totalTerjual =
-                    sales.fold<double>(
+                final totalTerjual = sales.fold<double>(
                   0,
                   (sum, item) => sum + item.weight,
                 );
@@ -1075,10 +949,7 @@ void deleteRecord(
 
               onChanged();
 
-              showMessage(
-                context,
-                'Data berhasil dihapus.',
-              );
+              showMessage(context, 'Data berhasil dihapus.');
             },
             child: const Text('Hapus'),
           ),
@@ -1097,22 +968,11 @@ Widget recordActions(
   return PopupMenuButton<String>(
     onSelected: (value) {
       if (value == 'edit') {
-        openRecordForm(
-          context,
-          record.type,
-          source,
-          onChanged,
-          record: record,
-        );
+        openRecordForm(context, record.type, source, onChanged, record: record);
       }
 
       if (value == 'delete') {
-        deleteRecord(
-          context,
-          record,
-          source,
-          onChanged,
-        );
+        deleteRecord(context, record, source, onChanged);
       }
     },
     itemBuilder: (_) => const [
@@ -1180,10 +1040,7 @@ Widget recordList(
             ),
             subtitle: Text(
               '${record.detail}\n${record.date}',
-              style: const TextStyle(
-                fontSize: 10,
-                color: muted,
-              ),
+              style: const TextStyle(fontSize: 10, color: muted),
             ),
             isThreeLine: true,
             trailing: Row(
@@ -1198,12 +1055,7 @@ Widget recordList(
                       fontSize: 11,
                     ),
                   ),
-                recordActions(
-                  context,
-                  record,
-                  actionSource,
-                  onChanged,
-                ),
+                recordActions(context, record, actionSource, onChanged),
               ],
             ),
           ),
@@ -1243,7 +1095,7 @@ class DashboardPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
-                  color: navy,
+                  color: const Color.fromARGB(255, 20, 56, 100),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Column(
@@ -1251,10 +1103,7 @@ class DashboardPage extends StatelessWidget {
                   children: [
                     const Text(
                       'Saldo bersih berdasarkan data yang diinput',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 11,
-                      ),
+                      style: TextStyle(color: Colors.white70, fontSize: 11),
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -1268,10 +1117,7 @@ class DashboardPage extends StatelessWidget {
                     const SizedBox(height: 5),
                     const Text(
                       'Angka berubah setelah transaksi ditambahkan.',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 10,
-                      ),
+                      style: TextStyle(color: Colors.white70, fontSize: 10),
                     ),
                   ],
                 ),
@@ -1282,13 +1128,13 @@ class DashboardPage extends StatelessWidget {
                   stat(
                     'Penerimaan',
                     rupiah(totalPenerimaan),
-                    color: green,
+                    color: const Color.fromARGB(255, 12, 148, 100),
                   ),
                   const SizedBox(width: 10),
                   stat(
                     'Pengeluaran',
                     rupiah(totalPengeluaran),
-                    color: red,
+                    color: const Color.fromARGB(255, 219, 87, 100),
                   ),
                 ],
               ),
@@ -1296,12 +1142,7 @@ class DashboardPage extends StatelessWidget {
               actionButton(
                 'Catat pengeluaran usaha',
                 () {
-                  openRecordForm(
-                    context,
-                    'Pengeluaran',
-                    expenses,
-                    onChanged,
-                  );
+                  openRecordForm(context, 'Pengeluaran', expenses, onChanged);
                 },
                 color: red,
                 icon: Icons.money_off,
@@ -1345,38 +1186,46 @@ class DashboardPage extends StatelessWidget {
                   ),
                 )
               else ...[
-                ...payments.reversed.take(3).map(
-                  (item) => activityCard(
-                    item.name,
-                    'Setoran internet',
-                    rupiah(item.amount),
-                    green,
-                  ),
-                ),
-                ...purchases.reversed.take(3).map(
-                  (item) => activityCard(
-                    item.name,
-                    'Pembelian green bean',
-                    rupiah(item.total),
-                    red,
-                  ),
-                ),
-                ...sales.reversed.take(3).map(
-                  (item) => activityCard(
-                    item.name,
-                    'Penjualan ke pabrik',
-                    rupiah(item.total),
-                    green,
-                  ),
-                ),
-                ...expenses.reversed.take(3).map(
-                  (item) => activityCard(
-                    item.name,
-                    'Pengeluaran usaha',
-                    rupiah(item.amount),
-                    red,
-                  ),
-                ),
+                ...payments.reversed
+                    .take(3)
+                    .map(
+                      (item) => activityCard(
+                        item.name,
+                        'Setoran internet',
+                        rupiah(item.amount),
+                        green,
+                      ),
+                    ),
+                ...purchases.reversed
+                    .take(3)
+                    .map(
+                      (item) => activityCard(
+                        item.name,
+                        'Pembelian green bean',
+                        rupiah(item.total),
+                        red,
+                      ),
+                    ),
+                ...sales.reversed
+                    .take(3)
+                    .map(
+                      (item) => activityCard(
+                        item.name,
+                        'Penjualan ke pabrik',
+                        rupiah(item.total),
+                        green,
+                      ),
+                    ),
+                ...expenses.reversed
+                    .take(3)
+                    .map(
+                      (item) => activityCard(
+                        item.name,
+                        'Pengeluaran usaha',
+                        rupiah(item.amount),
+                        red,
+                      ),
+                    ),
               ],
             ],
           ),
@@ -1386,12 +1235,7 @@ class DashboardPage extends StatelessWidget {
   }
 }
 
-Widget menuRow(
-  IconData icon,
-  String title,
-  String detail,
-  VoidCallback onTap,
-) {
+Widget menuRow(IconData icon, String title, String detail, VoidCallback onTap) {
   return ListTile(
     contentPadding: EdgeInsets.zero,
     leading: CircleAvatar(
@@ -1400,46 +1244,23 @@ Widget menuRow(
     ),
     title: Text(
       title,
-      style: const TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-      ),
+      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
     ),
-    subtitle: Text(
-      detail,
-      style: const TextStyle(
-        fontSize: 10,
-        color: muted,
-      ),
-    ),
+    subtitle: Text(detail, style: const TextStyle(fontSize: 10, color: muted)),
     trailing: const Icon(Icons.chevron_right),
     onTap: onTap,
   );
 }
 
-Widget activityCard(
-  String name,
-  String type,
-  String amount,
-  Color color,
-) {
+Widget activityCard(String name, String type, String amount, Color color) {
   return commonCard(
     ListTile(
       contentPadding: EdgeInsets.zero,
       title: Text(
         name,
-        style: const TextStyle(
-          fontWeight: FontWeight.w700,
-          fontSize: 12,
-        ),
+        style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
       ),
-      subtitle: Text(
-        type,
-        style: const TextStyle(
-          fontSize: 10,
-          color: muted,
-        ),
-      ),
+      subtitle: Text(type, style: const TextStyle(fontSize: 10, color: muted)),
       trailing: Text(
         amount,
         style: TextStyle(
@@ -1459,10 +1280,7 @@ Widget activityCard(
 class InternetPage extends StatefulWidget {
   final VoidCallback onChanged;
 
-  const InternetPage({
-    super.key,
-    required this.onChanged,
-  });
+  const InternetPage({super.key, required this.onChanged});
 
   @override
   State<InternetPage> createState() => _InternetPageState();
@@ -1476,10 +1294,7 @@ class _InternetPageState extends State<InternetPage>
   void initState() {
     super.initState();
 
-    tabs = TabController(
-      length: 4,
-      vsync: this,
-    );
+    tabs = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -1489,15 +1304,10 @@ class _InternetPageState extends State<InternetPage>
   }
 
   void addData(String title, List<FinanceRecord> source) {
-    openRecordForm(
-      context,
-      title,
-      source,
-      () {
-        setState(() {});
-        widget.onChanged();
-      },
-    );
+    openRecordForm(context, title, source, () {
+      setState(() {});
+      widget.onChanged();
+    });
   }
 
   @override
@@ -1623,11 +1433,7 @@ class _InternetPageState extends State<InternetPage>
       children: [
         Row(
           children: [
-            stat(
-              'Penerimaan',
-              rupiah(totalSetoranInternet),
-              color: green,
-            ),
+            stat('Penerimaan', rupiah(totalSetoranInternet), color: green),
             const SizedBox(width: 10),
             stat('Transaksi', '${payments.length}'),
           ],
@@ -1660,10 +1466,7 @@ class _InternetPageState extends State<InternetPage>
 class CoffeePage extends StatefulWidget {
   final VoidCallback onChanged;
 
-  const CoffeePage({
-    super.key,
-    required this.onChanged,
-  });
+  const CoffeePage({super.key, required this.onChanged});
 
   @override
   State<CoffeePage> createState() => _CoffeePageState();
@@ -1677,10 +1480,7 @@ class _CoffeePageState extends State<CoffeePage>
   void initState() {
     super.initState();
 
-    tabs = TabController(
-      length: 3,
-      vsync: this,
-    );
+    tabs = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -1690,15 +1490,10 @@ class _CoffeePageState extends State<CoffeePage>
   }
 
   void addData(String title, List<FinanceRecord> source) {
-    openRecordForm(
-      context,
-      title,
-      source,
-      () {
-        setState(() {});
-        widget.onChanged();
-      },
-    );
+    openRecordForm(context, title, source, () {
+      setState(() {});
+      widget.onChanged();
+    });
   }
 
   @override
@@ -1726,11 +1521,7 @@ class _CoffeePageState extends State<CoffeePage>
         Expanded(
           child: TabBarView(
             controller: tabs,
-            children: [
-              stockTab(),
-              supplierTab(),
-              salesTab(),
-            ],
+            children: [stockTab(), supplierTab(), salesTab()],
           ),
         ),
       ],
@@ -1738,15 +1529,9 @@ class _CoffeePageState extends State<CoffeePage>
   }
 
   Widget stockTab() {
-    final bought = purchases.fold<double>(
-      0,
-      (sum, item) => sum + item.weight,
-    );
+    final bought = purchases.fold<double>(0, (sum, item) => sum + item.weight);
 
-    final sold = sales.fold<double>(
-      0,
-      (sum, item) => sum + item.weight,
-    );
+    final sold = sales.fold<double>(0, (sum, item) => sum + item.weight);
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -1762,14 +1547,11 @@ class _CoffeePageState extends State<CoffeePage>
             children: [
               const Text(
                 'Stok tersedia berdasarkan transaksi',
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 11,
-                ),
+                style: TextStyle(color: Colors.white70, fontSize: 11),
               ),
               const SizedBox(height: 7),
               Text(
-                '${totalStokKopi} kg',
+                '$totalStokKopi kg',
                 style: const TextStyle(
                   fontSize: 27,
                   color: Colors.white,
@@ -1778,10 +1560,7 @@ class _CoffeePageState extends State<CoffeePage>
               ),
               Text(
                 'Pembelian $bought kg  ·  Penjualan $sold kg',
-                style: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 10,
-                ),
+                style: const TextStyle(color: Colors.white70, fontSize: 10),
               ),
             ],
           ),
@@ -1856,11 +1635,7 @@ class _CoffeePageState extends State<CoffeePage>
       children: [
         Row(
           children: [
-            stat(
-              'Total penjualan',
-              rupiah(totalPenjualanKopi),
-              color: green,
-            ),
+            stat('Total penjualan', rupiah(totalPenjualanKopi), color: green),
             const SizedBox(width: 10),
             stat('Transaksi', '${sales.length}'),
           ],
@@ -1887,11 +1662,7 @@ class _CoffeePageState extends State<CoffeePage>
   }
 }
 
-Widget stockLine(
-  String title,
-  String value,
-  Color color,
-) {
+Widget stockLine(String title, String value, Color color) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 7),
     child: Row(
@@ -1899,10 +1670,7 @@ Widget stockLine(
         Expanded(
           child: Text(
             title,
-            style: const TextStyle(
-              fontSize: 11,
-              color: muted,
-            ),
+            style: const TextStyle(fontSize: 11, color: muted),
           ),
         ),
         Text(
@@ -1925,10 +1693,7 @@ Widget stockLine(
 class ReportPage extends StatelessWidget {
   final VoidCallback onChanged;
 
-  const ReportPage({
-    super.key,
-    required this.onChanged,
-  });
+  const ReportPage({super.key, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -1945,17 +1710,9 @@ class ReportPage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  stat(
-                    'Penerimaan',
-                    rupiah(totalPenerimaan),
-                    color: green,
-                  ),
+                  stat('Penerimaan', rupiah(totalPenerimaan), color: green),
                   const SizedBox(width: 10),
-                  stat(
-                    'Pengeluaran',
-                    rupiah(totalPengeluaran),
-                    color: red,
-                  ),
+                  stat('Pengeluaran', rupiah(totalPengeluaran), color: red),
                 ],
               ),
               const SizedBox(height: 10),
@@ -1986,11 +1743,7 @@ class ReportPage extends StatelessWidget {
                       rupiah(totalPengeluaranOperasional),
                     ),
                     const Divider(),
-                    reportRow(
-                      'Saldo bersih',
-                      '',
-                      rupiah(saldoBersih),
-                    ),
+                    reportRow('Saldo bersih', '', rupiah(saldoBersih)),
                   ],
                 ),
               ),
@@ -2005,10 +1758,7 @@ class ReportPage extends StatelessWidget {
               const SizedBox(height: 12),
               const Text(
                 'Dashboard dan laporan menggunakan sumber perhitungan yang sama.',
-                style: TextStyle(
-                  fontSize: 11,
-                  color: muted,
-                ),
+                style: TextStyle(fontSize: 11, color: muted),
               ),
             ],
           ),
@@ -2018,11 +1768,7 @@ class ReportPage extends StatelessWidget {
   }
 }
 
-Widget reportRow(
-  String label,
-  String count,
-  String amount,
-) {
+Widget reportRow(String label, String count, String amount) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 9),
     child: Row(
@@ -2039,13 +1785,7 @@ Widget reportRow(
                 ),
               ),
               if (count.isNotEmpty)
-                Text(
-                  count,
-                  style: const TextStyle(
-                    fontSize: 10,
-                    color: muted,
-                  ),
-                ),
+                Text(count, style: const TextStyle(fontSize: 10, color: muted)),
             ],
           ),
         ),
@@ -2089,11 +1829,7 @@ class ProfilePage extends StatelessWidget {
                     CircleAvatar(
                       radius: 27,
                       backgroundColor: bg,
-                      child: Icon(
-                        Icons.business,
-                        color: navy,
-                        size: 28,
-                      ),
+                      child: Icon(Icons.business, color: navy, size: 28),
                     ),
                     SizedBox(height: 12),
                     Text(
@@ -2107,10 +1843,7 @@ class ProfilePage extends StatelessWidget {
                     SizedBox(height: 5),
                     Text(
                       'Pencatatan usaha internet dan pengepul kopi green bean.',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: muted,
-                      ),
+                      style: TextStyle(fontSize: 11, color: muted),
                     ),
                   ],
                 ),
@@ -2130,18 +1863,12 @@ class ProfilePage extends StatelessWidget {
                     SizedBox(height: 6),
                     Text(
                       'Semua daftar dimulai dalam keadaan kosong. Data baru berasal dari input pengguna.',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: muted,
-                      ),
+                      style: TextStyle(fontSize: 11, color: muted),
                     ),
                     SizedBox(height: 10),
                     Text(
                       'Data saat ini tersimpan sementara selama aplikasi berjalan. Belum menggunakan database permanen.',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: muted,
-                      ),
+                      style: TextStyle(fontSize: 11, color: muted),
                     ),
                   ],
                 ),

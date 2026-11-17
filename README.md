@@ -111,6 +111,17 @@ Data dikelola menggunakan List<FinanceRecord> dan dimulai dalam keadaan kosong. 
 
 Penyimpanan masih bersifat sementara di memori aplikasi. Data dapat hilang ketika aplikasi ditutup atau dimulai ulang. Pada tahap ini belum digunakan database permanen.
 
+# UTS APP Mini v1.0
+
+## Menambahakan Fitur Summary Dashboard
+
+- Menampilkan Total Masuk Mengunakan Card berwarna Colors.green.shade100
+- Menampilkan Total Keluar Mengunakan Card berwarna Colors.red.shade100
+- Menampilkan Saldo Bersih Mengunakan Card berwarna Colors.bluu.shade100
+
+- Manambahkan Beberapa Tabel DropDownButton Di Beberapa fitur yang Menurut saya cocok menggunakan DropDownButton ini dan ini saya terapkan di usaha internet.
+- Menambahakan Fitur Penghitungan Otomatis Menggunakan FinanceRecord,Field total yang nantinya akan otomatis menghitung ulang sebelum di simpan dan ini saya terapkan di usaha kopi.
+
 ## Cara Menjalankan
 flutter pub get
 flutter run -d chrome
@@ -123,4 +134,3 @@ Tuliskan kendala yang dialami jika ada.(Sejauh ini Masih Tidak Ada)
 
 ## Catatan Penggunaan AI
 Saya menggunakan AI untuk Membuat Kode program Prototype v0.0 yang di tempatkan di library pada file main.dart, namun saya tidak hanya meminta AI untuk membuatkan kode tapi juga menjelaskan kode kode itu untuk saya pelajari dan pahami.
-
